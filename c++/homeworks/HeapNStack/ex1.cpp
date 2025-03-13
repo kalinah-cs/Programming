@@ -63,11 +63,28 @@ bool equal(int *begin, int *end, int *begin1, int *end1){
 void replace(int *begin, int *end, int oldv, int newv){
     while(begin < end){
         if(*begin == oldv){
-            begin == &oldv;
+            cout << newv;
         }
-        cout << *begin;
+        else{
+            cout << *begin;
+        }
+        begin++;
     }
 }
+
+void rotate (int *begin, int *mid, int *end){
+    //1 2 3 4 5
+    //3 4 5 1 2
+    for(int *i = mid; i < end; i++){
+        cout << *i;
+    }
+    while(begin < mid){
+        cout << *begin;
+        begin++;
+    }
+
+}
+
 
 
 int main(){
@@ -87,40 +104,74 @@ int main(){
     }
     Vector3* hvector = new Vector3();
 
-    //ex 1
+
+
+
     int n;
     cin >> n;
     int *arr = new int[n];
     for(int i = 0; i < n; i++){
         cin >> arr[i];
     }
-    print(arr, arr+n);
+
     //ex 2
     int num;
-    cin >> num;
-    cout << UpperBound(arr, arr+n, num);
-    //int *ptr = UpperBound(arr, arr+n, num);
+    //cin >> num;
+
+    //ex 3
+    int n1;
+    // cout << "ex3";
+    // cin >> n1;
+    int *arr1 = new int[n1];
+    // for(int i = 0; i < n1; i++){
+    //     cin >> arr1[i];
+    // }
+
+
+    //ex 4
+    int oldv, newv;
+    //cin >> oldv >> newv;
+
+    //ex6
+    int s;
+    cin >> s;
+    int *search = new int[s];
+    for(int i = 0; i < s; i++){
+        cin >> search[i];
+    }
+
+
+
+
+    //ex1
+    //print(arr, arr+n);
+
+
+
+    //ex 2
+    //cout << UpperBound(arr, arr+n, num);
+
+
 
     //ex3
-    int n1;
-    cout << "ex3";
-    cin >> n1;
-    int *arr1 = new int[n1];
-    for(int i = 0; i < n1; i++){
-        cin >> arr1[i];
-    }
-    bool isEq = equal(arr, arr+n, arr1, arr1+n1);
-    if(isEq){
-        cout << "It's equal!";
-    }
-    else{
-        cout << "It's not equal!";
-    }
+    // bool isEq = equal(arr, arr+n, arr1, arr1+n1);
+    // if(isEq){
+    //     cout << "It's equal!";
+    // }
+    // else{
+    //     cout << "It's not equal!";
+    // }
 
 
     //ex4
+    //replace(arr, arr+n, oldv, newv);
 
+    //ex5
+    //rotate(arr, arr+n/2, arr+n);
 
+    //ex6
+
+    
 
     delete hvalue;
     delete[] harray;
