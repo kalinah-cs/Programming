@@ -85,6 +85,42 @@ void rotate (int *begin, int *mid, int *end){
 
 }
 
+void Search(int *begin, int *end, int *sbegin, int *send){
+    // 1 2 3 4 5
+    // 2 3 4
+    bool IsFull = false;
+    int count = 0;
+    for(int *i = begin; i < end; i++){
+        if(*i == *sbegin){
+            for(int *j = sbegin, *k = i; j < send && i < end; j++, k++){
+                if(*j == *k){
+                    IsFull = true;
+                }
+                else{
+                    IsFull = false;
+                }
+            }
+            if(IsFull){
+                count++;
+                cout << count << ". ";
+                for(int *g = sbegin; g < send; g++){
+                    cout << *g;
+                }
+                IsFull = false;
+                cout << endl;
+            }
+        }
+    }
+}
+
+bool EndsWith(int *begin, int *end, int *begin1, int *end1){
+    for(int *i = end, *j = end1; i > begin && j > begin1; i--, j--){
+        if(*j != *i){
+            return false;
+        }
+    }
+    return true;
+}
 
 
 int main(){
@@ -134,11 +170,19 @@ int main(){
 
     //ex6
     int s;
-    cin >> s;
+    //cin >> s;
     int *search = new int[s];
-    for(int i = 0; i < s; i++){
-        cin >> search[i];
-    }
+    // for(int i = 0; i < s; i++){
+    //     cin >> search[i];
+    // }
+
+    //ex 7
+    int k;
+    //cin >> k;
+    int *ar = new int[k];
+    // for(int i = 0; i < k; i++){
+    //     cin >> ar[i];
+    // }
 
 
 
@@ -170,13 +214,26 @@ int main(){
     //rotate(arr, arr+n/2, arr+n);
 
     //ex6
-
+    //Search(arr, arr+n, search, search+s);
     
+    //ex7
+    // EndsWith(arr, arr+n, ar, ar+k);
+    // if(EndsWith){
+    //     cout << "yes";
+    // }
+    // else{
+    //     cout << "no";
+    // }
+
+    //ex8
+
 
     delete hvalue;
     delete[] harray;
     delete hvector;
     delete[] arr;
     delete[] arr1;
+    delete[] search;
+    delete[] ar;
     return 0;
 }
