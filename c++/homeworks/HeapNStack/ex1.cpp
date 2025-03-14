@@ -123,6 +123,8 @@ bool EndsWith(int *begin, int *end, int *begin1, int *end1){
 }
 
 
+
+
 int main(){
     // lesson
     int value =5; // stack
@@ -184,7 +186,13 @@ int main(){
     //     cin >> ar[i];
     // }
 
-
+    //ex8
+    int s1;
+    cin >> s1;
+    int *search1 = new int[s1];
+    for (int i =0; i < s1; i++){
+        cin >> search1[i];
+    }
 
 
     //ex1
@@ -235,5 +243,6 @@ int main(){
     delete[] arr1;
     delete[] search;
     delete[] ar;
+    delete[] search1;
     return 0;
 }
