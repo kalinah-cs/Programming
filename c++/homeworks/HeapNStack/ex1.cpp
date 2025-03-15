@@ -122,6 +122,38 @@ bool EndsWith(int *begin, int *end, int *begin1, int *end1){
     return true;
 }
 
+const int* find_end(const int* fbegin, const int* fend, const int* sbegin, const int* send){
+    bool isIt = false;
+    for(const int *i = fend; i > fbegin; i--){
+        if(*i == *send){
+            //5 4 3 2 1
+            //2 3 4
+            for(const int *j = send, *k = i; j > sbegin && i > fbegin; j--, k--){
+                if(*j != *k){
+                    isIt = true;
+                }
+                else{
+                    isIt = false;
+                    break;
+                }
+            }
+            if(isIt){
+                for(const int *g = sbegin; g < send; g++){
+                    cout << *g;
+                }
+                cout << endl;
+                if(i != 0){
+                    return --i;
+                }
+                else{
+                    return nullptr;
+                }
+            }
+
+        }
+    }
+    return nullptr;
+}
 
 
 
@@ -188,11 +220,11 @@ int main(){
 
     //ex8
     int s1;
-    cin >> s1;
+    // cin >> s1;
     int *search1 = new int[s1];
-    for (int i =0; i < s1; i++){
-        cin >> search1[i];
-    }
+    // for (int i =0; i < s1; i++){
+    //     cin >> search1[i];
+    // }
 
 
     //ex1
@@ -234,7 +266,29 @@ int main(){
     // }
 
     //ex8
+    // if(EndsWith(arr, arr+n, search1, search1+s1)){
+    //     cout << "yes";
+    // }
+    // else{
+    //     cout << "no";
+    // }
 
+    //ex9
+    int g;
+    cin >> g;
+    int *arr2 = new int[g];
+    for(int i = 0; i < g; i++){
+        cin >> arr[i];
+    }
+    const int *ptr = find_end(arr, arr+n, arr2, arr2+g);
+    if (!ptr)
+    {
+        cout << "Nqma takova chislo" << endl;
+    }
+    else
+    {
+        cout << ptr << " " << *ptr << endl;
+    }
 
     delete hvalue;
     delete[] harray;
@@ -244,5 +298,6 @@ int main(){
     delete[] search;
     delete[] ar;
     delete[] search1;
+    delete[] arr2;
     return 0;
 }
